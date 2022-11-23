@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@undefined&display=swap");
+body {
+    font-family: Arial, serif;
+    height: available;
+    width: available;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    background: rgba(241, 142, 224, 0.66);
+}
+p {
+    margin: 0;
+}
+header{
+    height: available;
+    width: available;
+    z-index: 3;
+    position: sticky;
+    top: -1px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2px 29px 2px 26px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0;
+    text-align: justify;
+}
+hr{
+    color: rgba(64, 29, 66, 0.88);
+    align-items: stretch;
+    width: 100%;
+}
+footer{
+    padding: 23px 78px 40px 79px;
+    box-sizing: border-box;
+    background: linear-gradient(
+            0deg,
+            rgba(128, 79, 111, 1),
+            rgba(128, 79, 111, 1)
+    );
+    box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    width: 100%;
+}
+.btn-group{
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    margin: 5px;
+    width: available;
+    list-style-type: none;
+    padding: 0;
+    overflow: hidden;
+}
+li {
+    float: left;
+}
+.button {
+    padding: 9px 5px 8px 6px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid rgba(253, 114, 93, 0.71);
+    cursor: pointer;
+    margin: 5px;
+    color: rgba(253, 114, 93, 0.71);
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    transition: transform ease-in 0.4s, box-shadow ease-in 0.25s;
+    box-shadow: 0 2px 5px rgba(243, 166, 79, 0.8);
+    text-align: center;
+    text-decoration: none;
+    vertical-align: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+@keyframes gradient {
+    0% {
+        background: radial-gradient(circle at center, rgba( 255, 125 , 125, 0 ) 0%, #fff 0%, #fff 100%);
+    }
+    25% {
+        background: radial-gradient(circle at center, rgba(128, 38, 72, 0.78) 24%, #fff 25%, #fff 100%);
+    }
+    50% {
+        background: radial-gradient(circle at center, rgba(255, 143, 73, 0.82) 49%, #fff 50%, #fff 100%);
+    }
+    75% {
+        background: radial-gradient(circle at center, rgb(242, 218, 209) 74%, #fff 75%, #fff 100%);
+    }
+    100% {
+        color: #fff;
+        background: radial-gradient(circle at center, rgba(241, 229, 169, 0.91) 99%, #fff 100%, #fff 100%);
+    }
+}
+.button:hover {
+    background-color: #fff;
+    box-shadow: 0 2px 1px 5px rgba(148, 89, 58, 0.88);
+    color: #000;
+}
+.button:active {
+    animation: gradient 0.1s;
+    background: rgba(105, 27, 117, 0.77);
+    color: #e6ccff;
+    opacity: 0.7;
+}
+.button:focus {
+    outline:0;
+}
+#login{
+    display: block;
+    margin: 11px;
+    padding-block: 4px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: Livvic, sans-serif;
+    letter-spacing: -0.24px;
+    color: rgba(253, 114, 93, 0.71);
+    flex-direction: column;
+    justify-content: right;
+    float: right;
+    text-align: center;
+    width: available;    
+	box-shadow: 8px 4px 2px 1px rgba(253, 114, 93, 0.71);/*right ->px  buttom px blur px width px*/
+}
+.clip-contents {
+    overflow: hidden;
+}
+.flex-col-hstart-vstart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.logo {
+    cursor: pointer;
+    vertical-align: middle;
+    width: 69px;
+    height: 100%;
+    padding-right: 5px;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    float:left;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.search {
+    width: 43px;
+    height: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    cursor: pointer;
+    vertical-align: middle;
+    padding-top: 24px;
+    margin-left: 1130px;
+}
+img{
+    flex: 0 0 50px;
+    margin-right: 20px;
+}
+/* Create three unequal columns that floats next to each other */
+/*  right column */
+.column.side {
+    width: 35%;
+}
+/* column */
+.column{
+    float: left;
+    width: 33.33%;
+    padding: 15px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+@media only screen and (max-width: 1230px) {
+    /* For mobile phones: */
+    .search {
+        margin-left: 730px;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    /* For mobile phones: */
+    .search {
+        margin-left: 630px;
+    }
+}
+@media only screen and (max-width: 1030px) {
+    /* For mobile phones: */
+    .search {
+        margin-left: 570px;
+    }
+}
+@media only screen and (max-width: 700px) {
+    /* For mobile phones: */
+    .search {
+        margin-left: 250px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    /* For mobile phones: */
+    .search {
+        margin-left: 130px;
+    }
+}

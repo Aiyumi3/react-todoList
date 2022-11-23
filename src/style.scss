@@ -1,0 +1,91 @@
+/* Navigation */
+
+@import url("https://fonts.googleapis.com/css2?family=Livvic:wght@undefined&display=swap");
+
+p {
+  margin: 0;
+}
+
+.clip-contents {
+  overflow: hidden;
+}
+
+.flex-col-hstart-vstart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-hcenter {
+  justify-content: center;
+}
+
+.navigation {
+  padding: 2px 29px 2px 26px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 1);
+  width: 1920px;
+  height: 60px;
+}
+
+.group-1098 {
+  height: 100%;
+}
+
+.logo {
+  width: 69px;
+  margin-right: 1266px;
+  height: 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.search {
+  width: 43px;
+  height: 34px;
+  margin-right: 348px;
+}
+
+.group {
+  width: 137px;
+  height: fit-content;
+}
+
+.button {
+  padding: 9px 5px 8px 6px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(253, 114, 93, 0.71);
+}
+
+.txt-1410 {
+  font-size: 16px;
+  font-family: Livvic, sans-serif;
+  letter-spacing: -0.24px;
+  color: rgba(253, 114, 93, 0.71);
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.button-1 {
+  border-radius: 6px;
+  background-color: rgba(253, 114, 93, 0.71);
+}

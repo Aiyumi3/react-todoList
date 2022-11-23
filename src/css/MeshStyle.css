@@ -1,0 +1,95 @@
+p {
+    margin: 0;
+}
+.clip-contents {
+    overflow: hidden;
+}
+.flex-col-hstart-vstart {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.desktop {
+    padding: 0px 0px 9px 0px;
+    box-sizing: border-box;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+    background-size: 100% 100%;
+    width: 100%;
+    height: 700px;
+    filter: opacity(0.26);
+}
+.mesh {
+    height: 700px;
+    width: 100%;
+    background: url(../images/Mesh1.svg);
+    animation: mesh 2500ms ease-out 1ms alternate-reverse infinite;
+}
+@keyframes mesh {
+    from {background: url(../images/Mesh1.svg);}
+    to {background: url(../images/Mesh.svg);}
+}
+
+@keyframes color {
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+
+.vector{
+    padding-left: 31%;
+    padding-top: 11%;
+    background-blend-mode: darken;
+
+}
+.rect{
+    left: 40%;
+    top: 40%;
+    position: absolute;
+}
+.rect1{
+    left: 55%;
+    top: 35%;
+    position: absolute;
+}
+.rect2{
+    left: 33%;
+    top: 44%;
+    position: absolute;
+}
+.rect3{
+    left: 45%;
+    top: 47%;
+    position: absolute;
+}
+.rect4{
+    left: 42%;
+    top: 29%;
+    position: absolute;
+}
+.rect5{
+    left: 57%;
+    top: 50%;
+    position: absolute;
+}
+.rect6{
+    left: 65%;
+    top: 45%;
+    position: absolute;
+}
+.rect7{
+    left: 53%;
+    top: 43%;
+    position: absolute;
+}
+.rect8{
+    left: 51%;
+    top: 55%;
+    position: absolute;
+}
