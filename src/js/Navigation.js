@@ -17,17 +17,21 @@ import vector from '../images/Vector 1.svg';
 export default function Header() {
     return (
 
-        <div className="desktop flex-col-hstart-vstart clip-contents mesh">
-            <img src={vector}  className="vector" alt="bg"  />
-            <img src={r}  className="rect" alt="bg"  />
-            <img src={r1}  className="rect1" alt="bg"  />
-            <img src={r2}  className="rect2" alt="bg"  />
-            <img src={r3}  className="rect3" alt="bg"  />
-            <img src={r4}  className="rect4" alt="bg"  />
-            <img src={r5}  className="rect5" alt="bg"  />
-            <img src={r6}  className="rect6" alt="bg"  />
-            <img src={r7}  className="rect7" alt="bg"  />
-            <img src={r8}  className="rect8" alt="bg"  />
+        <div className="flex-col-hstart-vstart clip-contents mesh">
+            <div className="desktop">
+                <img src={vector}  className="vector" alt="bg"  />
+                <img src={r}  className="rect" alt="bg"  />
+                <img src={r1}  className="rect1" alt="bg"  />
+                <img src={r2}  className="rect2" alt="bg"  />
+                <img src={r3}  className="rect3" alt="bg"  />
+                <img src={r4}  className="rect4" alt="bg"  />
+                <img src={r5}  className="rect5" alt="bg"  />
+                <img src={r6}  className="rect6" alt="bg"  />
+                <img src={r7}  className="rect7" alt="bg"  />
+                <img src={r8}  className="rect8" alt="bg"  />
+                <p className="welcome">~WELCOME~</p>
+            </div>
+
         </div>
 
 )
