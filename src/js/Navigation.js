@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //import "./style.scss";
 ////import "../css/style.css";
 import "../css/MeshStyle.css";
@@ -22,10 +22,24 @@ import spline2 from '../images/spline2.svg';
 
 //
 export default function Header() {
-    return (
+    const [style, setStyle] = useState("");
+    const [style2, setStyle2] = useState("");
+    const [style3, setStyle3] = useState("");
+    const [style4, setStyle4] = useState("");
 
+    const changeStyle = () => {
+        console.log("you just clicked");
+        setStyle("up");
+        setStyle2("spl");
+        setStyle3("arrHide");
+        setStyle4("headerTxtShow");
+    };
+
+
+
+    return (
         <div className="flex-col-hstart-vstart clip-contents mesh">
-            <div className="desktop">
+            <div className="desktop" > <div className={style}>
                 <img src={vector}  className="vector" alt="bg"  />
                 <img src={r}  className="rect" alt="bg"  />
                 <img src={r1}  className="rect1" alt="bg"  />
@@ -42,12 +56,12 @@ export default function Header() {
                 <div className="welcome2">
                     <p className="" >make your day more <br/> productive with TO DO</p>
                 </div>
-                <div className="spline">
+                <div className="spline"><div className={style2}>
                     <img src={spline}  className="spline1" alt="spline"  />
                     <img src={spline2}  className="spline2" alt="spline"  />
-                </div>
-                <div className="arrowDown">
-                    <img src={arrowDown}  className="" alt="arrow down"  />
+                </div></div>
+                <div className="arrowDown" onClick={changeStyle} >
+                    <img src={arrowDown} className={style3} alt="arrow down"  />
                 </div>
                 <div className="">
                     <img src={neon1}  className="neon1" alt="neon"  />
@@ -56,8 +70,10 @@ export default function Header() {
                     <img src={neon4}  className="neon4" alt="neon"  />
                 </div>
 
+            </div></div>
+            <div className="headerTxt">
+                <p className={style4}>T O D O<span className='headerSpan'>List</span></p>
             </div>
-
         </div>
 
 )
