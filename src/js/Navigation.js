@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Ava from "./Ava";
+import Content from "./Content";
 //import "./style.scss";
 ////import "../css/style.css";
 import "../css/MeshStyle.css";
@@ -27,6 +29,7 @@ export default function Header() {
     const [style3, setStyle3] = useState("");
     const [style4, setStyle4] = useState("");
     const [style5, setStyle5] = useState("");
+    const [style6, setStyle6] = useState("");
 
     const changeStyle = () => {
         console.log("you just clicked");
@@ -34,12 +37,14 @@ export default function Header() {
         setStyle2("spl");
         setStyle3("arrHide");
         setStyle4("headerTxtShow");
-        setStyle5("up2");
+        setStyle5("locNaShow");
+        setStyle6("conHidden");
+
     };
 
 
 
-    return (<div className={style5}>
+    return (
         <div className="flex-col-hstart-vstart clip-contents mesh">
             <div className="desktop" > <div className={style}>
                 <img src={vector}  className="vector" alt="bg"  />
@@ -76,7 +81,32 @@ export default function Header() {
             <div className="headerTxt">
                 <p className={style4}>T O D O<span className='headerSpan'>List</span></p>
             </div>
+            <div className={style5}><div className="createAva">
+                <Ava />
+            </div></div>
+            <div className=""><div className={style6}>
+                <Content />
+            </div></div>
         </div>
-        </div>
+
 )
 }
+//<img src={src} className="avaPic" />
+/*  <div className="createAva">
+                <Ava /><Content />
+            </div>
+     const arrPic = [
+        'https://i.pinimg.com/564x/f6/c9/f1/f6c9f1e3b45625de5728f3b168221b7c.jpg',
+        'https://i.pinimg.com/564x/5c/ab/65/5cab6555d1d72e00353b5e89247ccb05.jpg',
+        'https://i.pinimg.com/564x/f0/d0/1b/f0d01bebb64fd175b0a2ede96dff2d62.jpg',
+        'https://i.pinimg.com/564x/e1/ca/b8/e1cab87516f3c46ad8d71a09aa476342.jpg',
+        'https://i.pinimg.com/564x/9c/72/89/9c728908273bc98ad2b6c0da20b57b78.jpg',
+        'https://i.pinimg.com/564x/19/c6/20/19c620d672837b79d918a3c6e3ff8b3e.jpg',
+        'https://i.pinimg.com/564x/14/e9/80/14e98054d979e79b884e7c51d330284d.jpg',
+        'https://i.pinimg.com/564x/17/28/38/172838055bab845a9f07107cf8bbdfd2.jpg'
+    ];
+          setSrc(arrPic[random(0, arrPic.length - 1)]);
+          function random(min, max){
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+         */

@@ -7,18 +7,19 @@ import Header from "./js/Navigation";
 import Footer from "./js/Footer";
 import Content from "./js/Content";
 
-/*const header = ReactDOM.createRoot(document.getElementById('header'));
+
+const header = ReactDOM.createRoot(document.getElementById('header'));
 header.render(
     <React.StrictMode>
         <Header />
     </React.StrictMode>
-);*/
-const content = ReactDOM.createRoot(document.getElementById('content'));
+);
+/*const content = ReactDOM.createRoot(document.getElementById('content'));
 content.render(
     <React.StrictMode>
         <Content />
     </React.StrictMode>
-);
+);*/
 //ReactDOM.render(<React.StrictMode><App /></React.StrictMode>, document.getElementById('header'));
 const footer = ReactDOM.createRoot(document.getElementById('footer'));
 footer.render(

@@ -384,15 +384,41 @@ p {
     font-weight: 400;
     font-size: 20px;
 }
-.up2{
-    animation: upCh2 2000ms ease-in-out 1s forwards;
+.createAva{
+    position: absolute;
+    left: 220px;
+    top: 23px;
+    font-family: 'Fondamento', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFE1FC;
+    transform: translateY(-130%);
 }
-@keyframes upCh2 {
-    0% {
-        height: 700px;
+.locNaShow{
+    animation: locShow 900ms linear 1s forwards;
+}
+@keyframes locShow {
+    from{
+        transform: translateY(-130%);
     }
-    100% {
-        height: 230px;
-        opacity: 0;
+    to {
+        transform: translateX(900px) translateY(-500px);
+    }
+}
+.conHidden{
+    filter: opacity(0%);
+    position: absolute;
+    left: 43%;
+    top: 43px;
+    animation: contentShow 900ms ease-out 5s forwards;
+}
+
+@keyframes contentShow {
+    from {
+        filter: opacity(0%);
+    }
+    to {
+        filter: opacity(100%);
     }
 }

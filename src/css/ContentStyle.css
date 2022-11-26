@@ -1,0 +1,80 @@
+.inpTask{
+    position: absolute;
+    width: 159px;
+    height: 105px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    linear-gradient(180deg, #A09FEE 6.15%, #B9E9E0 48.48%, rgba(248, 190, 242, 0) 100%);
+    box-shadow: -8px 11px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    left: 48px;
+    top: 360px;
+}
+.inpTaskDetail{
+    position: absolute;
+    width: 160px;
+    height: 64px;
+    left: 95px;
+    top: 460px;
+    border-radius: 30px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    linear-gradient(180deg, #A09FEE 6.15%, #B9E9E0 48.48%, rgba(248, 190, 242, 0) 100%);
+    box-shadow: -8px 11px 10px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+}
+.taskToDo{
+    position: absolute;
+    width: 125px;
+    height: 49px;
+    left: -250px;
+    top: 140px;
+    border-radius: 40px;
+    box-shadow: 4px 4px 12px 4px rgba(0, 0, 0, 0.15), inset -7px -3px 7px 3px rgba(255, 255, 255, 0.5);
+    filter: drop-shadow(-4px -4px 12px rgba(248, 247, 247, 0.1));
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+    linear-gradient(180deg, #A09FEE 5.98%, #B9E9E0 48.39%, rgba(248, 190, 242, 0) 100%);
+    font-family: 'Fondamento', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: #000000;
+    text-align: left;
+    padding-top: 9px;
+    padding-left: 7px;
+}
+.taskToDoDescr{
+    position: absolute;
+    font-family: 'Fondamento', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: left;
+    padding-top: 23px;
+    padding-left: 15px;
+    left: -250px;
+    top: 140px;
+}
+.deleteT{
+    position: absolute;
+    transform: scale(0.8);
+    left: -150px;
+    top: 110px;
+    border-radius: 100%;
+    color: rgba(0, 0, 0, 0.7);
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    z-index: 1;
+    background: radial-gradient(89.15% 120.5% at 34% 14.5%, #86FDFD 0%,
+    rgba(208, 83, 228, 0.98) 48.23%, #6C2278 80%, #8300EB 100%) ;
+    box-shadow: 4.84825px 6.46433px 9.6965px rgba(253, 253, 253, 0.25),
+    inset 1.29287px -6.14112px 9.6965px rgba(0, 0, 0, 0.25), inset 1.29287px 5.8179px 9.6965px rgba(0, 0, 0, 0.25);
+
+}
+
