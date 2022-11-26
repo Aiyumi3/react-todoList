@@ -21,9 +21,9 @@ export default function Ava() {
 
 
     return (
-        <main>
+        <div>
             <NewAva newAva={newAva} handleChange={handleChange} handleSubmit={handleSubmit}  />
-            <AvaList allTasks={all} />
-        </main>
+            <AvaList all={all} />
+        </div>
     );
 }

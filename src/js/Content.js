@@ -8,11 +8,12 @@ export default function Content() {
 
     return (
         <div>
-            <NewAva />
+            <Ava />
         </div>
     )
 
 }
+/*
 document.querySelector('#btn-generate').addEventListener('click', onClickGenerate);
 
 function onClickGenerate(){
@@ -108,4 +109,4 @@ class Cookie{
         document.cookie = `${cname}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
     }
 }
-firstLoad();
+firstLoad();*/

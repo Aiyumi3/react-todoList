@@ -9,18 +9,15 @@ export default function NewAva({ newAva, handleChange, handleSubmit }) {
         <div>
             <Header />
             <br/><br/>
-            <div className="container mt-3 mb-5">
-                <div className="form-group" onSubmit={handleSubmit}>
-                    <input type="text" className="form-control" id="inp-name" placeholder="enter name"
+            <form onSubmit={handleSubmit}>
+                    <input type="text" style={{borderRadius: '30px'}} id="inp-name" placeholder="enter name"
                     name='title' value={newAva.title || ""} onChange={handleChange} />
                     {!newAva.title ? null : (
                         <>
                             <button type="submit">add user</button>
                         </>
                     )}
-                </div>
-
-            </div>
+            </form>
 
             <br/>
         </div>
