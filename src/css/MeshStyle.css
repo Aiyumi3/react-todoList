@@ -384,4 +384,15 @@ p {
     font-weight: 400;
     font-size: 20px;
 }
-
+.up2{
+    animation: upCh2 2000ms ease-in-out 1s forwards;
+}
+@keyframes upCh2 {
+    0% {
+        height: 700px;
+    }
+    100% {
+        height: 230px;
+        opacity: 0;
+    }
+}

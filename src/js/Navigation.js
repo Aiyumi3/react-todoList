@@ -26,6 +26,7 @@ export default function Header() {
     const [style2, setStyle2] = useState("");
     const [style3, setStyle3] = useState("");
     const [style4, setStyle4] = useState("");
+    const [style5, setStyle5] = useState("");
 
     const changeStyle = () => {
         console.log("you just clicked");
@@ -33,11 +34,12 @@ export default function Header() {
         setStyle2("spl");
         setStyle3("arrHide");
         setStyle4("headerTxtShow");
+        setStyle5("up2");
     };
 
 
 
-    return (
+    return (<div className={style5}>
         <div className="flex-col-hstart-vstart clip-contents mesh">
             <div className="desktop" > <div className={style}>
                 <img src={vector}  className="vector" alt="bg"  />
@@ -75,6 +77,6 @@ export default function Header() {
                 <p className={style4}>T O D O<span className='headerSpan'>List</span></p>
             </div>
         </div>
-
+        </div>
 )
 }
