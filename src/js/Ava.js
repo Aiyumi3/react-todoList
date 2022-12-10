@@ -38,14 +38,14 @@ export default function Ava() {
         if (!newAva.title) return;
         setAll((prev) => [newAva, ...prev]);
         setNewAva({});
-        setStyle("hidden");
+        //setStyle("hidden");
 
         setUserToken(ip,{
             days: 365,
             SameSite: 'Strict',
             Secure: true
         });
-        localStorage.setItem('username', newAva.title)
+        localStorage.setItem('username', newAva.title);
 
     };
 
@@ -53,7 +53,7 @@ export default function Ava() {
             <div className="flex-col-hstart-vstart clip-contents">
                 <br/><br/>
                 <form onSubmit={handleSubmit}>
-                    {localStorage.getItem('username') ? null : (
+                    {localStorage.getItem('username') ? newAva.title : (
                         <input placeholder="enter name"
                                name='title' value={newAva.title || ""} onChange={handleChange} className={style}/>
                     )
@@ -72,7 +72,7 @@ export default function Ava() {
                             <div>
                                 {
                                     localStorage.getItem('username') ?
-                                        <h2>{localStorage.getItem('username').value}</h2> : <h2>{title}</h2>
+                                        <h2>{localStorage.getItem('username')}</h2> : <h2>{title}</h2>
                                 }
 
                             </div>
@@ -80,7 +80,7 @@ export default function Ava() {
                     ))}
                 </ul>
 
-                <h3>{city}, {countryCode}</h3>
+                <h3>{localStorage.getItem('username')}<br/> {city}, {countryCode}</h3>
 
             </div>
         );

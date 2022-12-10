@@ -1,25 +1,28 @@
 .inpTask{
     position: absolute;
-    width: 159px;
-    height: 105px;
+    width: 129px;
+    height: 54px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
     linear-gradient(180deg, #A09FEE 6.15%, #B9E9E0 48.48%, rgba(248, 190, 242, 0) 100%);
     box-shadow: -8px 11px 10px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
-    left: 48px;
-    top: 360px;
+    left: -248px;
+    top: 220px;
 }
 .inpTaskDetail{
     position: absolute;
-    width: 160px;
-    height: 64px;
-    left: 95px;
-    top: 460px;
+    width: 120px;
+    height: 44px;
+    left: -205px;
+    top: 260px;
     border-radius: 30px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
     linear-gradient(180deg, #A09FEE 6.15%, #B9E9E0 48.48%, rgba(248, 190, 242, 0) 100%);
     box-shadow: -8px 11px 10px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
+}
+.popUp{
+    height: max-content;
 }
 .taskToDo{
     position: absolute;
@@ -43,8 +46,19 @@
     text-align: left;
     padding-top: 9px;
     padding-left: 7px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    word-break: break-all;
+
 }
 .taskToDoDescr{
+    cursor: pointer;
     position: absolute;
     font-family: 'Fondamento', serif;
     font-style: italic;
@@ -59,8 +73,21 @@
     padding-left: 15px;
     left: -250px;
     top: 140px;
+    overflow: hidden;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    word-break: break-all;
+    width: 110px;
+    height: 40px;
 }
+
 .deleteT{
+
     position: absolute;
     transform: scale(0.8);
     left: -150px;
@@ -77,4 +104,9 @@
     inset 1.29287px -6.14112px 9.6965px rgba(0, 0, 0, 0.25), inset 1.29287px 5.8179px 9.6965px rgba(0, 0, 0, 0.25);
 
 }
-
+.hidden{
+    filter: opacity(0%);
+}
+.show{
+    filter: opacity(100%);
+}
