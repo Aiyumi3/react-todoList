@@ -3,4 +3,15 @@
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
+  <component name="net.techminded.npmania.NpmaniaSettingsState">
+    <option name="actions">
+      <map>
+        <entry key="npm run-script build" value="npm run-script build" />
+        <entry key="npm run-script eject" value="npm run-script eject" />
+        <entry key="npm run-script start" value="npm run-script start" />
+        <entry key="npm run-script test" value="npm run-script test" />
+        <entry />
+      </map>
+    </option>
+  </component>
 </project>
