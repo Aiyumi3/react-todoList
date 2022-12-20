@@ -6,93 +6,7 @@ import { Login } from "../Login/Login.js";
 
 
 export function Main(){
-    //const [task, setTask] = useState({});
-    //const [allTasks, setAllTasks] = useState([]);
 
-    /*const handleClick = (event) =>{
-        event.preventDefault();
-        let title = document.querySelector('input[name=\'title\']').value;
-        let detail = document.querySelector('input[name=\'detail\']').value;
-
-
-
-
-        const oldTask = JSON.parse(localStorage.getItem("tasks"));
-        const newTask = {
-
-        };
-        //localStorage.setItem("tasks", JSON.stringify([newTask, ...oldTask]));
-        //setTask([newTask, ...oldTask]);
-        setTask(prev => ({
-            ...prev,
-            id: generateUID(),
-            complete: false,
-            title,
-            detail
-            })
-        );
-
-        if (!task.title) return;
-        setAllTasks((prev) => [task, ...prev]);
-        setTask({});
-    };
-    useEffect(()=>{
-            if(task !== ''){
-                localStorage.setItem('savedTasks', JSON.stringify(allTasks));
-
-            }
-        }
-    );
-    const newTodoInput = useRef();
-    useEffect(() => {
-        const storedTodos = JSON.parse(localStorage.getItem('savedTasks'));
-        if (storedTodos) {
-            setAllTasks(storedTodos);
-            setFilter('all');
-            setFilteredTodos(storedTodos);
-        }
-    }, [])
-
-    useEffect(() => {
-        if(todos.length !== 0) {
-            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
-        }
-    }, [todos])
-    const initialTodos = [
-        {
-            id: 1,
-            title: "Todo 1",
-            complete: false,
-        },
-        {
-            id: 2,
-            title: "Todo 2",
-            complete: false,
-        },
-    ];
-*/
-    /*
-
-    //function Todos() {
-
-
-
-    //}
-
-    const reducer = (state, action) => {
-        switch (action.type) {
-            case "COMPLETE":
-                return state.map((todo) => {
-                    if (todo.id === action.id) {
-                        return { ...todo, complete: !todo.complete };
-                    } else {
-                        return todo;
-                    }
-                });
-            default:
-                return state;
-        }
-    };*/
     function generateUID(){
         const r = (Math.floor(Math.random() * 1000000)).toString(16);
         const d = Date.now().toString(16);
@@ -118,7 +32,6 @@ export function Main(){
     }, [todos]);
 
     const [style, setStyle] = useState("");
-    const [style2, setStyle2] = useState("");
 
 
     function handleAddTodo(event) {
@@ -134,7 +47,6 @@ export function Main(){
         setTodos([...todos, { id: generateUID(), todoName: todoName, todoInf:todoInf, complete: false }]);
         newTodoInput.current.value = null;
         newTodoInput2.current.value = null;
-
 
     }
 
@@ -181,6 +93,33 @@ export function Main(){
     );
 
 
+    const onClick = () => {
+        setStyle('clicked');
+    };
+    const ch = (id) => {
+        const todoName = newTodoInput.current.value;
+        const todoInf = newTodoInput2.current.value;
+        if (todoName === "") {
+            return;
+        }
+        if (todoInf === "") {
+            document.querySelector('p').style.display='none';
+        }
+
+        const index = todos.findIndex((task) => task.id === id);;
+        setTodos([...todos, { id: index, todoName: todoName, todoInf:todoInf, complete: false }]);
+        newTodoInput.current.value = null;
+        newTodoInput2.current.value = null;
+
+    };
+    const editTask = (text) => {
+        const newTask = [...todos];
+        const index = newTask.findIndex((task) => task.id === generateUID());
+        newTask[index].todoName = text.todoName;
+        newTask[index].todoInf = text.todoInf;
+        setTodos(newTask);
+        localStorage.setItem("tasks", JSON.stringify(newTask));
+    };
 
     return (
         <>
@@ -201,6 +140,7 @@ export function Main(){
 
                 <div className='cols'>
                     {todos.map(todo => (
+
                         <div className='taskToDo' key={todo.id} >
                         <label>
                             <input className="todo-checkbox" type="checkbox" checked={todo.complete}
@@ -208,18 +148,41 @@ export function Main(){
                             />
                             {todo.complete ? <span className='checked'><b>{todo.todoName}</b>
                                 <p><span className='inf'> {todo.todoInf}</span></p> </span> : (
-                                <span className='task'><b>{todo.todoName}</b>
+                                <span className='task'><b >{todo.todoName}
+                                </b>
                                 <p><span className='inf'> {todo.todoInf}</span></p></span>) }
                         </label>
                             <div className='todo-delete1'><div className='todo-delete2'>
+                                <a className='aTodo' href="#popup1"> 📝 </a>
                             <button className="todo-delete" onClick={() => deleteTodo(todo.id)}>
                                 <sup><small>╰(*°▽°*)╯</small><i><sup>📜</sup></i></sup>
                                 🗑</button>
-                        </div></div>
+                            </div></div>
+
                         </div>
                     ))}
-                </div>
 
+                </div>
+                    <div id="popup1" className="overlay">
+                        <div className="popup">
+                            <h2>Edit task *:･ﾟ✧🖋</h2>
+                            <a className="close" href="#">&times;</a>
+
+                            <div className="content">
+                                <form>
+                                    <fieldset id="overForm">
+                                        <label id='label'>📝 :
+                                            <input type='text' name='task' ref={newTodoInput}
+                                                   placeholder='enter task title' autoFocus  />
+                                            <input className='inpTaskDetail' type='text' name='info' ref={newTodoInput2}
+                                                   placeholder='enter task detail'  />
+                                        </label>
+                                        <button type='submit' id='addT'> 🖋 </button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                 </>
             ) : '' }

@@ -146,14 +146,92 @@ button{
 }
 .taskToDo{
     position: relative;
+    cursor: pointer;
+}
+.taskToDo:hover{
+    border: #38f19d dashed 3px;
 }
 .cols label{
     word-break: break-all;
-    width: 270px;
+    text-align: justify;
     padding-right: 25px;
-    padding-left: 5px;
+    padding-left: 20px;
     letter-spacing: 2px;
 }
+.aTodo{/*btn to edit*/
+    border: 2px dotted rgba(73, 131, 255, 0.82);
+    border-radius: 50px;
+    text-decoration: none;
+}
+.aTodo:hover {
+    border: #38f19d dashed 3px;
+    background: rgba(105, 27, 117, 0.77);
+    text-decoration: none;
+}
+/*pop up*/
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 45px;
+    width: 48%;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.popup .close:hover {
+    color: #06D85F;
+    border: #06D85F solid 1px;
+    border-radius: 20px;
+    padding: 0 15px 3px 15px;
+    background: linear-gradient(180deg, rgba(224, 224, 246, 0.86) 5.98%, rgba(241, 171, 203, 0.92) 48.39%, rgba(138, 2, 225, 0.95) 100%);
+}
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    width: 100%;
+}
+#overForm{
+    height: 150px;
+    width: 600px;
+    padding: 5px;
+    margin-left: 23px;
+    background:none;
+    animation:none;
+    opacity: 1;
+}
+/**/
 
 #del{
     display: none ;
@@ -186,6 +264,7 @@ button{
     border-radius: 50%;
     margin-right: -100px;
     padding: 0;
+    cursor: pointer;
 }
 .todo-checkbox:focus {
     box-shadow: none;
@@ -236,6 +315,7 @@ button{
     margin-right: 25px;
     margin-bottom: 25px;
     padding-bottom: 25px;
+    text-align: justify;
 }
 
 .remaining, .cols {
@@ -267,8 +347,11 @@ button{
         opacity: 1;
     }
 }
-p{
+label p{
     height: 0;
+    margin-left: 0;
+    text-indent: 25px;
+    text-align: justify;
 }
 .clear{
     font-size: 14pt;
