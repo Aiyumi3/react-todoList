@@ -1,15 +1,14 @@
 body{
-    background-image: url("/src/img/login.jpg");
+    background: url("https://cdn.wallpapersafari.com/12/33/J98AON.jpg") 200% 200% fixed no-repeat;
     background-position: center;
-    background-repeat: repeat;
-    background-size: contain;
+    background-size: cover;
     /*flex center*/
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
 }
-fieldset {
+#login {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -82,9 +81,4 @@ button:active {
     to {
         transform: translateX(-1900px);
     }
-}
-
-.cols{
-    column-count: 3;
-    column-gap: 40px;
 }

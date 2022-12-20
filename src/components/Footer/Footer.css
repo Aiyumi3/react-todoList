@@ -3,7 +3,8 @@
     padding: 55px 90px;
     font-family: Flamenco, serif;
     color: lavender;
-    background-color: #614985;
+    background: linear-gradient(white, #ebf8f8 0%,
+    rgba(218, 9, 145, 0.98) 48.23%, rgba(243, 222, 117, 0.8) 80%, rgba(167, 105, 217, 0.9) 100%) ;
     font-size: 20pt;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
@@ -34,7 +35,7 @@ a:hover{
     text-decoration: underline;
 }
 a:visited{
-    color: #190128;
+    color: #d094f5;
     text-decoration: none;
 }
 p{

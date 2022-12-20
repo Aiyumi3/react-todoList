@@ -4,7 +4,7 @@
     padding: 55px 90px;
     font-family: Flamenco, serif;
     color: lavender;
-    background-color: #f1abcb;
+    background: linear-gradient(180deg, rgba(224, 224, 246, 0.86) 5.98%, rgba(241, 171, 203, 0.92) 48.39%, rgba(138, 2, 225, 0.95) 100%);
     font-size: 20pt;
     border-bottom-right-radius: 40px;
     border-bottom-left-radius: 40px;

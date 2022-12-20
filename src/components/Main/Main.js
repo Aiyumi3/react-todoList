@@ -6,12 +6,58 @@ import { Login } from "../Login/Login.js";
 
 
 export function Main(){
+    //const [task, setTask] = useState({});
+    //const [allTasks, setAllTasks] = useState([]);
 
-    function generateUID(){
-        const r = (Math.floor(Math.random() * 1000000)).toString(16);
-        const d = Date.now().toString(16);
-        return r + d;
-    }
+    /*const handleClick = (event) =>{
+        event.preventDefault();
+        let title = document.querySelector('input[name=\'title\']').value;
+        let detail = document.querySelector('input[name=\'detail\']').value;
+
+
+
+
+        const oldTask = JSON.parse(localStorage.getItem("tasks"));
+        const newTask = {
+
+        };
+        //localStorage.setItem("tasks", JSON.stringify([newTask, ...oldTask]));
+        //setTask([newTask, ...oldTask]);
+        setTask(prev => ({
+            ...prev,
+            id: generateUID(),
+            complete: false,
+            title,
+            detail
+            })
+        );
+
+        if (!task.title) return;
+        setAllTasks((prev) => [task, ...prev]);
+        setTask({});
+    };
+    useEffect(()=>{
+            if(task !== ''){
+                localStorage.setItem('savedTasks', JSON.stringify(allTasks));
+
+            }
+        }
+    );
+    const newTodoInput = useRef();
+    useEffect(() => {
+        const storedTodos = JSON.parse(localStorage.getItem('savedTasks'));
+        if (storedTodos) {
+            setAllTasks(storedTodos);
+            setFilter('all');
+            setFilteredTodos(storedTodos);
+        }
+    }, [])
+
+    useEffect(() => {
+        if(todos.length !== 0) {
+            localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+        }
+    }, [todos])
     const initialTodos = [
         {
             id: 1,
@@ -24,6 +70,14 @@ export function Main(){
             complete: false,
         },
     ];
+*/
+    /*
+
+    //function Todos() {
+
+
+
+    //}
 
     const reducer = (state, action) => {
         switch (action.type) {
@@ -38,63 +92,130 @@ export function Main(){
             default:
                 return state;
         }
-    };
-
-    function Todos() {
-        const [todos, dispatch] = useReducer(reducer, initialTodos);
-        // const [userToken, setUserToken] = useCookie('task List', []);
-        const onClickCreate = () => {
-
-            const inpTask = document.querySelector('#inp-task');
-            const title = inpTask.value;
-            const task = { title };
-            task.uid = generateUID();
-            //saveTask(task);
-
-            // renderTask(task);
-            inpTask.value = "";
+    };*/
+    function generateUID(){
+        const r = (Math.floor(Math.random() * 1000000)).toString(16);
+        const d = Date.now().toString(16);
+        return r + d;
+    }
+    const [todos, setTodos] = useState([]);
 
 
+    const newTodoInput = useRef();
+    const newTodoInput2 = useRef();
 
+    useEffect(() => {
+        const storedTodos = JSON.parse(localStorage.getItem('savedTasks'));
+        if (storedTodos) {
+            setTodos(storedTodos);
         }
+    }, [])
 
-        const handleComplete = (todo) => {
-            dispatch({ type: "COMPLETE", id: todo.id });
-        };
+    useEffect(() => {
+        if(todos.length !== 0) {
+            localStorage.setItem('savedTasks', JSON.stringify(todos))
+        }
+    }, [todos])
 
-        const [inputValue, setInputValue] = useState("");
-        const previousInputValue = useRef("");
+    const [style, setStyle] = useState("");
+    const [style2, setStyle2] = useState("");
 
-        useEffect(() => {
-            previousInputValue.current = inputValue;
-        }, [inputValue]);
 
-        return (
-            <>
-                <input id="inp-task"
-                       type="text"
-                       value={inputValue}
-                       onChange={(e) => setInputValue(e.target.value)}
-                />
-                <button onClick={onClickCreate}>create</button>
-                <h2>Current Value: {inputValue}</h2>
-                <h2>Previous Value: {previousInputValue.current}</h2>
+    function handleAddTodo(event) {
+        event.preventDefault();
+        const todoName = newTodoInput.current.value;
+        const todoInf = newTodoInput2.current.value;
+        if (todoName === "") {
+            return;
+        }
+        if (todoInf === "") {
+            document.querySelector('p').style.display='none';
+        }
+        setTodos([...todos, { id: generateUID(), todoName: todoName, todoInf:todoInf, complete: false }]);
+        newTodoInput.current.value = null;
+        newTodoInput2.current.value = null;
 
-                {todos.map((todo) => (
-                    <div key={todo.id}>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={todo.complete}
-                                onChange={() => handleComplete(todo)}
-                            />
-                            TO DO: {todo.title}
-                        </label>
-                    </div>
-                ))}
-            </>
-        );
+
     }
 
-}
+    function toggleTodo(id) {
+        const newTodos = [...todos];
+        const selectedTask = todos.find(todo => todo.id === id);
+        selectedTask.complete = !selectedTask.complete;
+        setTodos(newTodos);
 
+    }
+    function handleClear() {//clear completed
+        const remainingTodos = todos.filter(todo => !todo.complete);
+        setTodos(remainingTodos);
+    }
+    function handleClearAll() {//clear all
+        localStorage.removeItem('savedTasks');
+        window.location.reload(false);
+    }
+    function deleteTodo(idToRemove) {//clear by id
+        const remainingTodos = todos.filter(todo => todo.id !== idToRemove);
+        setTodos(remainingTodos);
+    }
+    function countRemaining() {//uncompleted number
+        const count = todos.filter(todo => !todo.complete);
+
+        if (count.length === 1) {
+            return `1 item left`;
+        } else {
+            return `${count.length} items left`;
+        }
+    }
+
+    function handleToggle(todo) {
+        toggleTodo(todo.id);
+
+    }
+
+
+    return (
+        <>
+        <form onSubmit={handleAddTodo} className="add-task">
+            { localStorage.getItem('savedUser') !== null ?  (<>
+                <fieldset>
+                    <label id='label'>📝 :
+                        <input type='text' name='task' ref={newTodoInput}
+                               placeholder='enter task title' autoFocus  />
+                        <input className='inpTaskDetail' type='text' name='info' ref={newTodoInput2}
+                               placeholder='enter task detail'  />
+                    </label>
+                    <button type='submit' id='addT'> + </button>
+                </fieldset>
+                    <div className="remaining">{countRemaining()}</div>
+                    <button className="clear" onClick={handleClear}>Clear Completed</button>
+                    <button className="clear" onClick={handleClearAll}>Clear All</button>
+
+                <div className='cols'>
+                    {todos.map(todo => (
+                        <div className='taskToDo' key={todo.id} >
+                        <label>
+                            <input className="todo-checkbox" type="checkbox" checked={todo.complete}
+                                   onChange={() => handleToggle(todo)}
+                            />
+                            {todo.complete ? <span className='checked'><b>{todo.todoName}</b>
+                                <p><span className='inf'> {todo.todoInf}</span></p> </span> : (
+                                <span className='task'><b>{todo.todoName}</b>
+                                <p><span className='inf'> {todo.todoInf}</span></p></span>) }
+
+                            <button className="todo-delete" onClick={() => deleteTodo(todo.id)}>
+                                <sup><small>╰(*°▽°*)╯</small><i><sup>📜</sup></i></sup>
+                                🗑</button>
+                        </label>
+                        </div>
+                    ))}
+                </div>
+
+
+                </>
+            ) : '' }
+        </form>
+
+        </>
+    )
+
+}
