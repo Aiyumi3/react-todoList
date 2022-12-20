@@ -173,6 +173,7 @@ export function Main(){
     }
 
 
+
     return (
         <>
         <form onSubmit={handleAddTodo} className="add-task">
@@ -201,11 +202,12 @@ export function Main(){
                                 <p><span className='inf'> {todo.todoInf}</span></p> </span> : (
                                 <span className='task'><b>{todo.todoName}</b>
                                 <p><span className='inf'> {todo.todoInf}</span></p></span>) }
-
+                        </label>
+                            <div className='todo-delete1'><div className='todo-delete2'>
                             <button className="todo-delete" onClick={() => deleteTodo(todo.id)}>
                                 <sup><small>╰(*°▽°*)╯</small><i><sup>📜</sup></i></sup>
                                 🗑</button>
-                        </label>
+                        </div></div>
                         </div>
                     ))}
                 </div>

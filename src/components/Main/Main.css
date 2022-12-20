@@ -88,10 +88,11 @@ button{
     overflow-wrap: break-word;
     word-wrap: break-word;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    flex-direction: column-reverse;/*reverse*/
+    justify-content: flex-end;
     word-break: break-all;
+    flex: 1;
+    align-items: center;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -162,13 +163,22 @@ button{
 }
 
 .todo-delete{
-    position: absolute;
-    top: 0;
-    right: 0;
     box-shadow: none;
     padding-top: 20px;
     border-bottom-left-radius: 180px;
+    border-top-right-radius: 165px;
     height: 50px;
+    width: 156px;
+}
+.taskToDo > .todo-delete1 { /*fixed to top right*/
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.taskToDo > .todo-delete1 > .todo-delete2{
+    position: fixed;
+    transform: translateX(-100%);
+
 }
 
 .todo-checkbox {
