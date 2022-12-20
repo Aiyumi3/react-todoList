@@ -109,13 +109,13 @@ export function Main(){
         if (storedTodos) {
             setTodos(storedTodos);
         }
-    }, [])
+    }, []);
 
     useEffect(() => {
         if(todos.length !== 0) {
             localStorage.setItem('savedTasks', JSON.stringify(todos))
         }
-    }, [todos])
+    }, [todos]);
 
     const [style, setStyle] = useState("");
     const [style2, setStyle2] = useState("");
@@ -171,6 +171,14 @@ export function Main(){
         toggleTodo(todo.id);
 
     }
+
+    const scrollToLeft = () => {
+        document.querySelector('.cols').scrollLeft -= 1200;
+    }
+    useEffect(()=>{
+        scrollToLeft();
+    }
+    );
 
 
 
