@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect, useRef, useReducer  } from "react";
-import ReactDOM from 'react-dom/client';
+import { useState, useEffect  } from "react";
+
 import "./Header.css";
-import { Login } from "../Login/Login.js";
 
 
 export function Header(){

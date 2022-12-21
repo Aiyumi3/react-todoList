@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState, useEffect, useRef, useReducer  } from "react";
-import ReactDOM from 'react-dom/client';
+import { useState, useEffect, useRef  } from "react";
+
 import "./Main.css";
-import { Login } from "../Login/Login.js";
 
 
 export function Main(){
@@ -30,8 +29,6 @@ export function Main(){
             localStorage.setItem('savedTasks', JSON.stringify(todos))
         }
     }, [todos]);
-
-    const [style, setStyle] = useState("");
 
 
     function handleAddTodo(event) {
@@ -92,33 +89,27 @@ export function Main(){
     }
     );
 
+    const [selectedId, setSelectedId] = useState("");
 
-    const onClick = () => {
-        setStyle('clicked');
-    };
-    const ch = (id) => {
-        const todoName = newTodoInput.current.value;
-        const todoInf = newTodoInput2.current.value;
-        if (todoName === "") {
-            return;
-        }
-        if (todoInf === "") {
-            document.querySelector('p').style.display='none';
-        }
+    const editTask = () => {
+        console.log(selectedId);
 
-        const index = todos.findIndex((task) => task.id === id);;
-        setTodos([...todos, { id: index, todoName: todoName, todoInf:todoInf, complete: false }]);
-        newTodoInput.current.value = null;
-        newTodoInput2.current.value = null;
+        let inp = document.querySelector('#overForm input[name=\'task\']');
+        let inp2 = document.querySelector('#overForm input[name=\'info\']');
 
-    };
-    const editTask = (text) => {
-        const newTask = [...todos];
-        const index = newTask.findIndex((task) => task.id === generateUID());
-        newTask[index].todoName = text.todoName;
-        newTask[index].todoInf = text.todoInf;
-        setTodos(newTask);
-        localStorage.setItem("tasks", JSON.stringify(newTask));
+        const todoName = inp.value;
+        const todoInf = inp2.value;
+
+        setTodos(todos.map(todo => {
+            if (todo.id === selectedId) {
+                todo.todoName = todoName;
+                todo.todoInf = todoInf;
+            }
+            return todo;
+        }));
+        inp.value ='';
+        inp2.value ='';
+
     };
 
     return (
@@ -153,10 +144,12 @@ export function Main(){
                                 <p><span className='inf'> {todo.todoInf}</span></p></span>) }
                         </label>
                             <div className='todo-delete1'><div className='todo-delete2'>
-                                <a className='aTodo' href="#popup1"> 📝 </a>
                             <button className="todo-delete" onClick={() => deleteTodo(todo.id)}>
                                 <sup><small>╰(*°▽°*)╯</small><i><sup>📜</sup></i></sup>
                                 🗑</button>
+                                <div style={{ transform: 'translateX(115px) translateY(15px)'}}>
+                                    <a className='aTodo' href="#popup1" onClick={() => setSelectedId(todo.id)}> 📝 </a>
+                                </div>
                             </div></div>
 
                         </div>
@@ -169,17 +162,17 @@ export function Main(){
                             <a className="close" href="#">&times;</a>
 
                             <div className="content">
-                                <form>
+                                <div>
                                     <fieldset id="overForm">
                                         <label id='label'>📝 :
-                                            <input type='text' name='task' ref={newTodoInput}
+                                            <input type='text' name='task'
                                                    placeholder='enter task title' autoFocus  />
-                                            <input className='inpTaskDetail' type='text' name='info' ref={newTodoInput2}
+                                            <input className='inpTaskDetail' type='text' name='info'
                                                    placeholder='enter task detail'  />
                                         </label>
-                                        <button type='submit' id='addT'> 🖋 </button>
+                                        <button id='addT' onClick={editTask}> 🖋 </button>
                                     </fieldset>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,6 @@
 import React from 'react';
-import { useState, useEffect, useRef, useReducer  } from "react";
-import ReactDOM from 'react-dom/client';
-import "./Footer.css";
-import { Login } from "../Login/Login.js";
 
+import "./Footer.css";
 
 export function Footer(){
 
