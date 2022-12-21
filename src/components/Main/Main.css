@@ -32,7 +32,7 @@ fieldset{
     color: #330033;
     font-size: 18pt;
     transform: translateY(-25px);
-
+    margin-top: 70px;
 }
 input {
     height: 55px;

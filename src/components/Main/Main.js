@@ -133,7 +133,7 @@ export function Main(){
                     {todos.map(todo => (
 
                         <div className='taskToDo' key={todo.id} >
-                        <label>
+                        <label style={{marginTop: '70px'}}>
                             <input className="todo-checkbox" type="checkbox" checked={todo.complete}
                                    onChange={() => handleToggle(todo)}
                             />
