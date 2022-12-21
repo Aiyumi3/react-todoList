@@ -38,9 +38,7 @@ export function Main(){
         if (todoName === "") {
             return;
         }
-        if (todoInf === "") {
-            document.querySelector('p').style.display='none';
-        }
+
         setTodos([...todos, { id: generateUID(), todoName: todoName, todoInf:todoInf, complete: false }]);
         newTodoInput.current.value = null;
         newTodoInput2.current.value = null;
