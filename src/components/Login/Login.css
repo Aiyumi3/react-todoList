@@ -19,6 +19,9 @@ body{
     box-shadow: 1px 1px 25px #f1e1e1, 0 0 25px #190128, 0 0 25px #64008b;
     background-color: #afecec;
     padding: 45px;
+    height: 150px;
+    margin:0;
+
 }
 legend{
     padding-top: 85px;
@@ -32,7 +35,6 @@ label {
     font-family: Flamenco, serif;
     color: #330033;
     font-size: 18pt;
-    margin-top: 70px;
 }
 input {
     height: 55px;
